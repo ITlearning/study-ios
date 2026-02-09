@@ -62,6 +62,14 @@ cp -r study-ios/skills/study-summary YOUR_PROJECT/.claude/skills/
 
 설치하면 `/swift-study-skills:swift-study`, `/swift-study-skills:swift-quiz`, `/swift-study-skills:study-summary` 로 사용할 수 있습니다.
 
+### 방법 3: Skills 
+
+```bash
+npx skills add https://github.com/itlearning/study-ios 
+```
+
+이후 원하는 스킬 스페이스바로 선택, 설치할 수 있습니다.
+
 ### 사용법
 
 Claude Code에서 슬래시 커맨드로 실행하면 됩니다:
@@ -155,6 +163,14 @@ cp -r study-ios/skills/study-summary YOUR_PROJECT/.claude/skills/
 ```
 
 After that, skills are available as `/swift-study-skills:swift-study`, `/swift-study-skills:swift-quiz`, `/swift-study-skills:study-summary`.
+
+### Option 2: Skills 
+
+```bash
+npx skills add https://github.com/itlearning/study-ios 
+```
+
+After that, you can select and install the desired skill using the spacebar.
 
 ### Usage
 
