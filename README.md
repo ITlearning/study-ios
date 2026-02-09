@@ -62,7 +62,7 @@ cp -r study-ios/skills/study-summary YOUR_PROJECT/.claude/skills/
 
 설치하면 `/swift-study-skills:swift-study`, `/swift-study-skills:swift-quiz`, `/swift-study-skills:study-summary` 로 사용할 수 있습니다.
 
-### 방법 3: Skills 
+#### 방법 3: Skills 
 
 ```bash
 npx skills add https://github.com/itlearning/study-ios 
@@ -164,7 +164,7 @@ cp -r study-ios/skills/study-summary YOUR_PROJECT/.claude/skills/
 
 After that, skills are available as `/swift-study-skills:swift-study`, `/swift-study-skills:swift-quiz`, `/swift-study-skills:study-summary`.
 
-### Option 2: Skills 
+#### Option 3: Skills 
 
 ```bash
 npx skills add https://github.com/itlearning/study-ios 
