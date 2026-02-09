@@ -42,7 +42,7 @@ Swift/iOS를 공부할 때 쓸 수 있는 Claude Code 스킬 3개입니다. 답�
 
 ```bash
 # 저장소 클론
-git clone https://github.com/YOUR_USERNAME/study-ios.git
+git clone https://github.com/itlearning/study-ios.git
 
 # 스킬 파일을 프로젝트의 .claude/skills/ 에 복사
 cp -r study-ios/skills/swift-study YOUR_PROJECT/.claude/skills/
@@ -54,7 +54,7 @@ cp -r study-ios/skills/study-summary YOUR_PROJECT/.claude/skills/
 
 ```bash
 # Claude Code에서 마켓플레이스 추가
-/plugin marketplace add YOUR_USERNAME/study-ios
+/plugin marketplace add itlearning/study-ios
 
 # 플러그인 설치
 /plugin install swift-study-skills@study-ios
@@ -144,7 +144,7 @@ Turns your study conversation into a markdown note.
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/study-ios.git
+git clone https://github.com/itlearning/study-ios.git
 
 # Copy skill files to your project's .claude/skills/
 cp -r study-ios/skills/swift-study YOUR_PROJECT/.claude/skills/
@@ -156,7 +156,7 @@ cp -r study-ios/skills/study-summary YOUR_PROJECT/.claude/skills/
 
 ```bash
 # Add the marketplace in Claude Code
-/plugin marketplace add YOUR_USERNAME/study-ios
+/plugin marketplace add itlearning/study-ios
 
 # Install the plugin
 /plugin install swift-study-skills@study-ios
