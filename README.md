@@ -1,6 +1,6 @@
 # Swift Study Skills for Claude Code
 
-[한국어](#한국어) | [English](#english)
+[한국어](#한국어) | [English](#english) | [제작의도](https://velog.io/@kirri1124/Swift-%EB%A9%98%ED%86%A0%EB%A5%BC-Skill%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B2%84%EB%A6%AC%EA%B8%B0-with-Claude-Code)
 
 ---
 
