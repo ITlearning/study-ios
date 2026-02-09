@@ -1,3 +1,8 @@
+---
+name: study-summary
+description: Saves learning notes from the current conversation as a markdown file. Use after a study session to record what you learned.
+---
+
 # study-summary - Learning Notes Generator
 
 Skill for summarizing and saving learning notes from the current conversation.

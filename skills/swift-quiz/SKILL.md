@@ -1,3 +1,8 @@
+---
+name: swift-quiz
+description: Adaptive Swift/iOS quiz with 5 questions. Difficulty adjusts based on your answers. Use when reviewing or testing your Swift knowledge.
+---
+
 # swift-quiz - Swift/iOS 퀴즈
 
 적응형 퀴즈와 코딩 연습을 위한 스킬.

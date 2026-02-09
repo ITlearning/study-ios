@@ -1,3 +1,8 @@
+---
+name: swift-study
+description: Interactive Swift/iOS tutor using Socratic method. Use when studying Swift concepts, learning iOS development, or wanting guided explanations with questions.
+---
+
 # swift-study - Interactive Swift/iOS Learning
 
 Skill for interactive, Socratic-style Swift/iOS learning.
