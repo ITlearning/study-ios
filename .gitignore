@@ -1,0 +1,11 @@
+# Override global gitignore
+!README.md
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Local skills (duplicated in root skills/ for plugin distribution)
+.claude/skills/
+
+# Notes are personal study records
+notes/*.md

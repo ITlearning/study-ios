@@ -1,0 +1,8 @@
+{
+  "name": "swift-study-skills",
+  "version": "1.0.0",
+  "description": "Swift/iOS learning skills - Socratic tutoring, adaptive quizzes, and note-taking",
+  "license": "MIT",
+  "keywords": ["swift", "ios", "learning", "quiz", "study"],
+  "skills": "./skills/"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "study-ios",
+  "owner": {
+    "name": "tabber"
+  },
+  "metadata": {
+    "description": "Swift/iOS study skills for Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "swift-study-skills",
+      "source": "./",
+      "description": "Swift/iOS learning skills - Socratic tutoring, adaptive quizzes, and note-taking",
+      "version": "1.0.0",
+      "keywords": ["swift", "ios", "learning", "quiz"]
+    }
+  ]
+}
