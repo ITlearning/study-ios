@@ -1,4 +1,4 @@
-# Swift Study Skills for Claude Code
+# Swift Study Skills
 
 [한국어](#한국어) | [English](#english) | [제작의도](https://velog.io/@kirri1124/Swift-%EB%A9%98%ED%86%A0%EB%A5%BC-Skill%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B2%84%EB%A6%AC%EA%B8%B0-with-Claude-Code)
 
@@ -6,7 +6,7 @@
 
 ## 한국어
 
-Swift/iOS를 공부할 때 쓸 수 있는 Claude Code 스킬 3개입니다. 답을 알려주는 대신 질문을 던져서 스스로 생각하게 만들고, 퀴즈로 복습하고, 공부한 내용을 노트로 정리해줍니다.
+Swift/iOS를 공부할 때 쓸 수 있는 AI CLI 스킬 3개입니다. Claude Code, Codex CLI, Gemini CLI에서 사용할 수 있습니다. 답을 알려주는 대신 질문을 던져서 스스로 생각하게 만들고, 퀴즈로 복습하고, 공부한 내용을 노트로 정리해줍니다.
 
 ### 스킬 목록
 
@@ -44,13 +44,24 @@ Swift/iOS를 공부할 때 쓸 수 있는 Claude Code 스킬 3개입니다. 답�
 # 저장소 클론
 git clone https://github.com/itlearning/study-ios.git
 
-# 스킬 파일을 프로젝트의 .claude/skills/ 에 복사
-cp -r study-ios/skills/swift-study YOUR_PROJECT/.claude/skills/
-cp -r study-ios/skills/swift-quiz YOUR_PROJECT/.claude/skills/
-cp -r study-ios/skills/study-summary YOUR_PROJECT/.claude/skills/
+# 스킬 파일을 프로젝트에 복사
+# Claude Code
+cp -r study-ios/.agents/skills/swift-study YOUR_PROJECT/.claude/skills/
+cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.claude/skills/
+cp -r study-ios/.agents/skills/study-summary YOUR_PROJECT/.claude/skills/
+
+# Codex CLI
+cp -r study-ios/.agents/skills/swift-study YOUR_PROJECT/.agents/skills/
+cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.agents/skills/
+cp -r study-ios/.agents/skills/study-summary YOUR_PROJECT/.agents/skills/
+
+# Gemini CLI
+cp -r study-ios/.agents/skills/swift-study YOUR_PROJECT/.gemini/skills/
+cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.gemini/skills/
+cp -r study-ios/.agents/skills/study-summary YOUR_PROJECT/.gemini/skills/
 ```
 
-#### 방법 2: Plugin Marketplace (권장)
+#### 방법 2: Plugin Marketplace (Claude Code)
 
 ```bash
 # Claude Code에서 마켓플레이스 추가
@@ -62,17 +73,17 @@ cp -r study-ios/skills/study-summary YOUR_PROJECT/.claude/skills/
 
 설치하면 `/swift-study-skills:swift-study`, `/swift-study-skills:swift-quiz`, `/swift-study-skills:study-summary` 로 사용할 수 있습니다.
 
-#### 방법 3: Skills 
+#### 방법 3: Skills (ALL)
 
 ```bash
-npx skills add https://github.com/itlearning/study-ios 
+npx skills add https://github.com/itlearning/study-ios
 ```
 
 이후 원하는 스킬 스페이스바로 선택, 설치할 수 있습니다.
 
 ### 사용법
 
-Claude Code에서 슬래시 커맨드로 실행하면 됩니다:
+AI CLI에서 슬래시 커맨드로 실행하면 됩니다:
 
 ```
 /swift-study          # 새로운 주제 학습 시작
@@ -95,9 +106,17 @@ Claude Code에서 슬래시 커맨드로 실행하면 됩니다:
 다음 세션에서 이력 기반 추천으로 이어서 학습
 ```
 
+### 지원 CLI
+
+| CLI | 스킬 위치 | 프로젝트 지침 |
+|-----|----------|-------------|
+| [Claude Code](https://claude.ai/claude-code) | `.claude/skills/` | `CLAUDE.md` |
+| [Codex CLI](https://github.com/openai/codex) | `.agents/skills/` | `AGENTS.md` |
+| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | `.gemini/skills/` | `.gemini/GEMINI.md` |
+
 ### 요구 사항
 
-- [Claude Code](https://claude.ai/claude-code) CLI
+- 위 CLI 중 하나 이상
 - Swift 컴파일러 (`swift` 명령어) - 퀴즈의 코드 작성 문제 검증에 사용
 
 ### 라이선스
@@ -108,7 +127,7 @@ MIT
 
 ## English
 
-Three Claude Code skills for studying Swift/iOS. Instead of giving you answers, they ask questions so you work things out yourself. There's also a quiz and a note-taking tool.
+Three AI CLI skills for studying Swift/iOS. Works with Claude Code, Codex CLI, and Gemini CLI. Instead of giving you answers, they ask questions so you work things out yourself. There's also a quiz and a note-taking tool.
 
 ### Skills
 
@@ -146,13 +165,24 @@ Turns your study conversation into a markdown note.
 # Clone the repo
 git clone https://github.com/itlearning/study-ios.git
 
-# Copy skill files to your project's .claude/skills/
-cp -r study-ios/skills/swift-study YOUR_PROJECT/.claude/skills/
-cp -r study-ios/skills/swift-quiz YOUR_PROJECT/.claude/skills/
-cp -r study-ios/skills/study-summary YOUR_PROJECT/.claude/skills/
+# Copy skill files to your project
+# Claude Code
+cp -r study-ios/.agents/skills/swift-study YOUR_PROJECT/.claude/skills/
+cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.claude/skills/
+cp -r study-ios/.agents/skills/study-summary YOUR_PROJECT/.claude/skills/
+
+# Codex CLI
+cp -r study-ios/.agents/skills/swift-study YOUR_PROJECT/.agents/skills/
+cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.agents/skills/
+cp -r study-ios/.agents/skills/study-summary YOUR_PROJECT/.agents/skills/
+
+# Gemini CLI
+cp -r study-ios/.agents/skills/swift-study YOUR_PROJECT/.gemini/skills/
+cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.gemini/skills/
+cp -r study-ios/.agents/skills/study-summary YOUR_PROJECT/.gemini/skills/
 ```
 
-#### Option 2: Plugin marketplace (recommended)
+#### Option 2: Plugin marketplace (Claude Code)
 
 ```bash
 # Add the marketplace in Claude Code
@@ -164,17 +194,17 @@ cp -r study-ios/skills/study-summary YOUR_PROJECT/.claude/skills/
 
 After that, skills are available as `/swift-study-skills:swift-study`, `/swift-study-skills:swift-quiz`, `/swift-study-skills:study-summary`.
 
-#### Option 3: Skills 
+#### Option 3: Skills (ALL)
 
 ```bash
-npx skills add https://github.com/itlearning/study-ios 
+npx skills add https://github.com/itlearning/study-ios
 ```
 
 After that, you can select and install the desired skill using the spacebar.
 
 ### Usage
 
-Run slash commands in Claude Code:
+Run slash commands in your AI CLI:
 
 ```
 /swift-study          # Start learning a new topic
@@ -197,9 +227,17 @@ Save notes with /study-summary
 Next session picks up with history-based recommendations
 ```
 
+### Supported CLIs
+
+| CLI | Skills location | Project instructions |
+|-----|----------------|---------------------|
+| [Claude Code](https://claude.ai/claude-code) | `.claude/skills/` | `CLAUDE.md` |
+| [Codex CLI](https://github.com/openai/codex) | `.agents/skills/` | `AGENTS.md` |
+| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | `.gemini/skills/` | `.gemini/GEMINI.md` |
+
 ### Requirements
 
-- [Claude Code](https://claude.ai/claude-code) CLI
+- One or more of the CLIs above
 - Swift compiler (`swift` command) -- the quiz uses it to check your code
 
 ### License

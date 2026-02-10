@@ -15,20 +15,11 @@ You are a learning notes organizer. Review the current conversation, extract wha
 
 ### Step 0: Language Selection
 
-Ask the user to choose a language at the start using AskUserQuestion:
-(스킬 시작 시 AskUserQuestion으로 언어를 선택한다)
+Ask the user to choose a language at the start. Present the following choices:
+(스킬 시작 시 사용자에게 언어 선택지를 제시한다)
 
-```
-questions:
-  - question: "Which language do you prefer? / 어떤 언어로 진행할까요?"
-    header: "Language"
-    options:
-      - label: "한국어"
-        description: "한국어로 노트를 작성합니다"
-      - label: "English"
-        description: "Write notes in English"
-    multiSelect: false
-```
+- **한국어** - 한국어로 노트를 작성합니다
+- **English** - Write notes in English
 
 Use the selected language for the note content and all communication. Code and Swift keywords stay in English.
 (선택한 언어로 노트 내용과 소통을 진행한다. 코드와 Swift 키워드는 영어 그대로 유지한다.)
@@ -46,34 +37,16 @@ Scan the current conversation to identify:
 
 ### Step 2: Confirm Topics
 
-Use AskUserQuestion to confirm what to include:
-(AskUserQuestion으로 포함할 내용을 확인한다)
+Ask the user what to include. Present the following choices:
+(포함할 내용을 사용자에게 확인한다. 다음 선택지를 제시한다)
 
 **Korean:**
-```
-questions:
-  - question: "오늘 학습한 내용을 정리할까요? 포함할 주제를 선택하세요."
-    header: "정리할 주제"
-    options:
-      - label: "전체 정리"
-        description: "이 대화에서 학습한 모든 내용을 정리"
-      - label: "마지막 주제만"
-        description: "가장 최근에 다룬 주제만 정리"
-    multiSelect: false
-```
+- **전체 정리** - 이 대화에서 학습한 모든 내용을 정리
+- **마지막 주제만** - 가장 최근에 다룬 주제만 정리
 
 **English:**
-```
-questions:
-  - question: "Ready to organize today's notes? Choose what to include."
-    header: "Scope"
-    options:
-      - label: "Everything"
-        description: "Summarize all topics from this conversation"
-      - label: "Last topic only"
-        description: "Only the most recent topic"
-    multiSelect: false
-```
+- **Everything** - Summarize all topics from this conversation
+- **Last topic only** - Only the most recent topic
 
 ### Step 3: Generate Note
 
@@ -123,22 +96,21 @@ File path / 파일 경로: `study-ios/notes/YYYY-MM-DD-<topic-in-english>.md`
 
 ### Step 4: Save Note
 
-Use the Write tool to save the note to the `study-ios/notes/` directory.
-(Write tool을 사용하여 `study-ios/notes/` 디렉토리에 노트를 저장한다.)
+Save the note as a file to the `notes/` directory.
+(노트를 `notes/` 디렉토리에 파일로 저장한다.)
 
 ### Step 5: Update Learning Progress
 
-Record learning progress in memory using `mcp__plugin_everything-claude-code-ios_memory__create_entities` or `mcp__plugin_everything-claude-code-ios_memory__add_observations`:
-(memory에 학습 진도를 기록한다)
+Record learning progress. If a memory/knowledge graph tool is available, use it. Otherwise, append to `notes/progress.md`.
+(학습 진도를 기록한다. memory/knowledge graph 도구가 있으면 사용하고, 없으면 `notes/progress.md`에 추가한다.)
 
-- Entity: "SwiftLearningProgress"
-- Observations: topic studied, date, level, weak areas
+- Entity/Key: "SwiftLearningProgress"
+- Data: topic studied, date, level, weak areas
   (학습한 주제, 날짜, 수준, 취약 영역)
 
 Example / 예시:
 ```
-entity: SwiftLearningProgress
-observations:
+SwiftLearningProgress:
   - "2024-01-15: Value types vs reference types - completed (beginner-intermediate)"
   - "Weak area: closure capture lists"
 ```

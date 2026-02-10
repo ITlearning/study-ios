@@ -15,20 +15,11 @@ Give a Swift/iOS quiz. Difficulty adjusts automatically based on the learner's l
 
 ### Step 0: Language Selection
 
-Ask the user to choose a language at the start using AskUserQuestion:
-(스킬 시작 시 AskUserQuestion으로 언어를 선택한다)
+Ask the user to choose a language at the start. Present the following choices:
+(스킬 시작 시 사용자에게 언어 선택지를 제시한다)
 
-```
-questions:
-  - question: "Which language do you prefer? / 어떤 언어로 진행할까요?"
-    header: "Language"
-    options:
-      - label: "한국어"
-        description: "한국어로 퀴즈를 풉니다"
-      - label: "English"
-        description: "Take the quiz in English"
-    multiSelect: false
-```
+- **한국어** - 한국어로 퀴즈를 풉니다
+- **English** - Take the quiz in English
 
 Use the selected language for all communication. Code and Swift keywords stay in English.
 (선택한 언어로 이후 모든 소통을 진행한다. 코드와 Swift 키워드는 영어 그대로 유지한다.)
@@ -46,8 +37,8 @@ Ask in plain text:
 
 - If the user enters a topic: start the quiz on that topic.
   (유저가 주제를 입력한 경우: 해당 주제로 바로 퀴즈 시작)
-- If the user says "recommend" / "추천해줘": check learning history (SwiftLearningProgress in memory) and suggest 3-4 recently studied topics. Present choices via AskUserQuestion.
-  (학습 이력을 참고하여 최근 학습한 주제 중심으로 3-4개 추천. AskUserQuestion으로 선택지 제시.)
+- If the user says "recommend" / "추천해줘": check learning history (SwiftLearningProgress in memory, if available) and suggest 3-4 recently studied topics. Present choices for the user to pick from.
+  (학습 이력을 참고하여 최근 학습한 주제 중심으로 3-4개 추천. 선택지를 제시한다.)
 
 ### Step 2: Run the Quiz (5 questions)
 
@@ -90,8 +81,8 @@ The user types their own answer. (유저가 직접 답을 타이핑한다.)
 What keyword do you need to modify a struct's property inside a method?
 (Swift에서 struct 인스턴스의 프로퍼티를 메서드 안에서 변경하려면 어떤 키워드가 필요할까요?)
 ```
-Present 4 choices via AskUserQuestion. Multiple-choice is fine for concept checks.
-(AskUserQuestion으로 4지선다 제시. 개념 확인용은 객관식도 괜찮다.)
+Present 4 choices for the user to pick from. Multiple-choice is fine for concept checks.
+(4지선다를 제시한다. 개념 확인용은 객관식도 괜찮다.)
 
 #### Type D: Write Code (difficulty 4+ only / 난이도 4 이상)
 ```
@@ -102,8 +93,8 @@ Write a function that meets these requirements:
 - Takes an Int, returns Bool (Int를 받아서 Bool을 반환)
 - Returns true for even, false for odd (짝수면 true, 홀수면 false)
 ```
-When the user writes code, use the Task tool with `subagent_type: "Bash"` to verify it with the Swift compiler (`swift` command).
-(사용자가 코드를 작성하면 Task 도구로 서브에이전트를 활용하여 Swift 컴파일러로 검증한다.)
+When the user writes code, verify it by running the Swift compiler (`swift` command).
+(사용자가 코드를 작성하면 Swift 컴파일러(`swift` 명령)로 코드를 실행하여 검증한다.)
 
 ### Feedback Rules
 
