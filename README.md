@@ -38,7 +38,26 @@ Swift/iOS를 공부할 때 쓸 수 있는 AI CLI 스킬 3개입니다. Claude Co
 
 ### 설치 방법
 
-#### 방법 1: 직접 복사
+
+#### 방법 3: Skills (전체)(권장)
+
+```bash
+npx skills add https://github.com/itlearning/study-ios
+```
+
+이후 원하는 스킬 스페이스바로 선택, 설치할 수 있습니다.
+
+#### 방법 2: Plugin Marketplace (Claude Code)
+
+```bash
+# Claude Code에서 마켓플레이스 추가
+/plugin marketplace add itlearning/study-ios
+
+# 플러그인 설치
+/plugin install swift-study-skills@study-ios
+```
+
+#### 방법 3: 직접 복사
 
 ```bash
 # 저장소 클론
@@ -61,25 +80,7 @@ cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.gemini/skills/
 cp -r study-ios/.agents/skills/study-summary YOUR_PROJECT/.gemini/skills/
 ```
 
-#### 방법 2: Plugin Marketplace (Claude Code)
-
-```bash
-# Claude Code에서 마켓플레이스 추가
-/plugin marketplace add itlearning/study-ios
-
-# 플러그인 설치
-/plugin install swift-study-skills@study-ios
-```
-
 설치하면 `/swift-study-skills:swift-study`, `/swift-study-skills:swift-quiz`, `/swift-study-skills:study-summary` 로 사용할 수 있습니다.
-
-#### 방법 3: Skills (ALL)
-
-```bash
-npx skills add https://github.com/itlearning/study-ios
-```
-
-이후 원하는 스킬 스페이스바로 선택, 설치할 수 있습니다.
 
 ### 사용법
 
@@ -159,7 +160,26 @@ Turns your study conversation into a markdown note.
 
 ### Installation
 
-#### Option 1: Manual copy
+
+#### Option 1: Skills (ALL)(Recommend)
+
+```bash
+npx skills add https://github.com/itlearning/study-ios
+```
+
+After that, you can select and install the desired skill using the spacebar.
+
+#### Option 2: Plugin marketplace (Claude Code)
+
+```bash
+# Add the marketplace in Claude Code
+/plugin marketplace add itlearning/study-ios
+
+# Install the plugin
+/plugin install swift-study-skills@study-ios
+```
+
+#### Option 3: Manual copy
 
 ```bash
 # Clone the repo
@@ -182,25 +202,7 @@ cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.gemini/skills/
 cp -r study-ios/.agents/skills/study-summary YOUR_PROJECT/.gemini/skills/
 ```
 
-#### Option 2: Plugin marketplace (Claude Code)
-
-```bash
-# Add the marketplace in Claude Code
-/plugin marketplace add itlearning/study-ios
-
-# Install the plugin
-/plugin install swift-study-skills@study-ios
-```
-
 After that, skills are available as `/swift-study-skills:swift-study`, `/swift-study-skills:swift-quiz`, `/swift-study-skills:study-summary`.
-
-#### Option 3: Skills (ALL)
-
-```bash
-npx skills add https://github.com/itlearning/study-ios
-```
-
-After that, you can select and install the desired skill using the spacebar.
 
 ### Usage
 
