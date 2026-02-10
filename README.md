@@ -242,6 +242,12 @@ Next session picks up with history-based recommendations
 - One or more of the CLIs above
 - Swift compiler (`swift` command) -- the quiz uses it to check your code
 
+## 기여하기 (Contributing)
+
+이 프로젝트에 대한 기여를 환영합니다! 버그 리포트, 기능 제안, Pull Request 모두 환영합니다.
+
+Contributions are welcome! Feel free to submit bug reports, feature requests, or pull requests.
+
 ### License
 
 MIT
