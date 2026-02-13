@@ -10,31 +10,33 @@ Swift/iOS를 공부할 때 쓸 수 있는 AI CLI 스킬 3개입니다. Claude Co
 
 ### 스킬 목록
 
-#### `/swift-study` - 대화형 Swift 학습
+#### `/swift-study` - 마스터리 기반 Swift 학습
 
-주제를 말하면 핵심 개념을 하나씩 짚어가며 가르칩니다. 답을 바로 알려주는 게 아니라 질문을 던져서 스스로 생각하게 만드는 방식입니다.
+주제를 말하면 도발적인 코드 스니펫으로 시작합니다. 먼저 예측하고, 맞든 틀리든 그 이유를 파고듭니다. 이해가 검증될 때까지 다음으로 넘어가지 않습니다.
 
-- 주제를 직접 입력하거나 학습 이력 기반 추천을 받을 수 있음
-- 개념 설명 후 서술형 질문으로 이해도 확인
-- 틀리면 힌트를 주고 다시 생각하게 유도
-- 맞으면 바로 심화 내용으로 연결
+- Mystery Hook: 호기심을 유발하는 코드로 시작, 사전 지식 수준 자동 진단
+- Core Loop: 예측(PREDICT) -> 검증(REVEAL) -> 정리(RESTATE) 사이클을 난이도를 올리며 반복
+- Gate 시스템: 모호한 답변은 통과시키지 않고, 구체적 메커니즘을 요구
+- Anchor: 세션 마지막에 학습자가 직접 규칙 3개를 작성
+- 코드 실행 모드: Swift 컴파일러로 실제 실행하거나 AI 설명 중 선택
 
-#### `/swift-quiz` - 적응형 퀴즈
+#### `/swift-quiz` - 적응형 퀴즈 (추론 필수)
 
-5문제짜리 퀴즈를 풀 수 있습니다. 맞추면 난이도가 올라가고, 틀리면 내려갑니다.
+5문제짜리 퀴즈. 맞추면 난이도가 올라가고, 틀리면 내려갑니다. 모든 문제에서 "왜?"를 물어봅니다.
 
 - 코드 결과 예측, 에러 찾기, 개념 질문, 코드 작성 등 4가지 유형
-- 서술형 중심이라 직접 생각하고 답을 써야 함
-- 코드 작성 문제는 Swift 컴파일러로 실제 검증
-- 끝나면 강점/약점 분석과 다음 학습 추천
+- 정답만으로는 부분 점수 -- 근거까지 설명해야 full credit
+- 학습 이력에서 misconception을 읽어서 약점 우선 출제
+- 결과에 구체적 Gap Analysis + 다음 학습 추천 포함
 
 #### `/study-summary` - 학습 노트 생성
 
 대화에서 공부한 내용을 마크다운 노트로 정리해줍니다.
 
-- 핵심 개념, 코드 예제, 복습 질문을 포함한 구조화된 노트
+- 학습자가 직접 쓴 규칙(Anchor)과 실수한 부분을 그대로 포함
+- Core Loop의 Seed 코드를 복습용으로 모두 기록
+- Memory에 misconception과 gate 통과 여부를 기록해서 다음 세션에 연동
 - `notes/` 폴더에 날짜별로 자동 저장
-- 학습 진도를 메모리에 기록해서 다음 세션에 이어서 공부 가능
 
 ### 설치 방법
 
@@ -132,31 +134,33 @@ Three AI CLI skills for studying Swift/iOS. Works with Claude Code, Codex CLI, a
 
 ### Skills
 
-#### `/swift-study` - Interactive Swift learning
+#### `/swift-study` - Mastery-based Swift learning
 
-Tell it what you want to learn. It walks you through concepts one at a time, asking questions instead of lecturing.
+Tell it what you want to learn. It starts with a provocative code snippet. You predict first, then dig into why. It won't advance until your understanding is verified.
 
-- Enter a topic directly or get recommendations based on your study history
-- After each explanation, you answer open-ended questions to check understanding
-- Wrong answers get hints, not immediate corrections
-- Right answers lead straight into deeper material
+- Mystery Hook: starts with curiosity-inducing code, auto-diagnoses your level
+- Core Loop: PREDICT -> REVEAL -> RESTATE cycle, difficulty increases each round
+- Gate system: vague answers don't pass -- you must explain the mechanism
+- Anchor: you write 3 rules in your own words at the end of each session
+- Code execution mode: run code with Swift compiler or get AI explanations
 
-#### `/swift-quiz` - Adaptive quiz
+#### `/swift-quiz` - Adaptive quiz (reasoning required)
 
-5 questions. Get one right, difficulty goes up. Get one wrong, it goes down.
+5 questions. Get one right, difficulty goes up. Get one wrong, it goes down. Every question asks WHY.
 
 - Predict output, find bugs, answer concept questions, or write code
-- Mostly open-ended -- you have to think through your answers
-- Code-writing questions get verified by the actual Swift compiler
-- Results tell you what you're good at and what to review next
+- Correct answer alone is partial credit -- explain your reasoning for full credit
+- Reads your study history to prioritize weak spots (misconception-driven)
+- Results include specific gap analysis + next study recommendation
 
 #### `/study-summary` - Learning notes
 
 Turns your study conversation into a markdown note.
 
-- Key concepts, code examples, and review questions in one file
+- Includes your own Anchor rules and mistakes exactly as you wrote them
+- Records all Seed codes from Core Loop cycles for later review
+- Tracks misconceptions and gate results in Memory for cross-session continuity
 - Auto-saved to `notes/` folder by date
-- Tracks your progress in memory so you can pick up where you left off
 
 ### Installation
 
