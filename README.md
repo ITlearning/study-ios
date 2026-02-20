@@ -16,32 +16,36 @@ Claude Code, Codex CLI, Gemini CLI에서 같은 흐름으로 사용할 수 있�
 
 ### 스킬 목록
 
-#### `/swift-study` - 마스터리 기반 학습
+#### `/swift-study` - Classic + Mastery 학습
 
-한 주제를 깊게 다룹니다. 먼저 코드를 보고 예측한 뒤, 왜 그런지 설명하고 다시 본인 말로 정리합니다.
+학습 스타일을 고를 수 있습니다.
 
-- Mystery Hook으로 시작해서 현재 이해 수준을 빠르게 진단
-- Core Loop(PREDICT -> REVEAL -> RESTATE) 반복
-- 모호한 답변은 gate를 통과하지 못하고, 근거를 요구
-- 세션 끝에 Anchor 규칙 3개를 직접 작성
+- Classic: 설명을 먼저 듣고 질문으로 이해를 확인하는 방식 (처음 배우는 주제에 추천)
+- Mastery: 예측 -> 검증 -> 재진술 루프를 반복하는 훈련 방식 (실전 대비에 추천)
+- 모드 선택 문구에 각 모드의 용도와 난이도를 함께 안내
+- 용어는 한국어 우선으로 설명하고, 필요할 때 영어를 괄호로 병기
+- `격리 경계(isolation boundary)`처럼 낯선 표현은 바로 한 줄 설명을 붙여 이해를 돕는 방식
 - 실행 모드 선택 가능: Swift 컴파일러 실행 또는 설명 모드
 
 #### `/swift-quiz` - 적응형 퀴즈
 
-총 5문제입니다. 정답 여부뿐 아니라 근거 설명까지 보고 난이도를 조정합니다.
+Classic/Mastery 모드를 선택해서 퀴즈를 진행합니다.
 
+- Classic: 빠른 점검 중심, 근거 설명은 권장
+- Mastery: 정답 + 이유(WHY) 검증, 근거 품질까지 반영
 - 출력 예측, 버그 찾기, 개념 질문, 코드 작성 문제 포함
-- 정답만 맞추면 부분 점수 처리, 이유까지 설명하면 full credit
-- 최근 학습 이력의 misconception을 우선적으로 점검
-- 결과에 Gap Analysis와 다음 학습 추천 제공
+- 최근 학습 이력의 오해 포인트를 우선적으로 점검
+- 결과에 보완 포인트 분석과 다음 학습 추천 제공
+- 해설에서도 기술 용어를 처음 쓸 때 짧은 쉬운 설명을 함께 제공
 
 #### `/study-summary` - 학습 노트 저장
 
 세션 내용을 `notes/`에 Markdown 파일로 저장합니다.
 
-- Anchor에서 작성한 규칙과 헷갈린 포인트를 그대로 보존
-- Core Loop에서 사용한 seed 코드를 복습용으로 정리
+- Classic: 핵심 개념 위주로 간결하게 정리
+- Mastery: 규칙/혼동 포인트/seed 코드까지 상세 기록
 - 학습 진도와 취약 지점을 다음 세션에서 다시 활용 가능하도록 기록
+- 노트 안에서도 용어를 한국어 우선으로 쓰고, 필요한 영어 용어는 괄호로 병기
 
 ### 설치 방법
 
@@ -147,32 +151,37 @@ The workflow is straightforward.
 
 ### Skills
 
-#### `/swift-study` - Mastery-based study
+#### `/swift-study` - Classic + Mastery study
 
-This skill goes deep on one topic at a time. You predict first, then explain why, then restate in your own words.
+You can choose the learning style per session.
 
-- Starts with a Mystery Hook to quickly diagnose your level
-- Repeats a Core Loop: PREDICT -> REVEAL -> RESTATE
-- Uses a gate so vague answers do not pass
-- Ends with 3 Anchor rules written by the learner
+- Classic: explanation-first flow with question checks (recommended for new topics)
+- Mastery: prediction -> reveal -> restate loop with gate checks (recommended for practice)
+- Mode prompts include plain-language guidance on who each mode is for
+- Learner-facing wording uses plain terms first, with technical terms in parentheses when helpful
+- New technical terms are followed by a short one-line explanation
 - Supports run mode selection: real Swift execution or explanation mode
 
 #### `/swift-quiz` - Adaptive quiz
 
-Five questions per session. Difficulty changes based on both correctness and reasoning quality.
+You can run the quiz in Classic or Mastery mode.
 
+- Classic: fast review, lighter reasoning requirements
+- Mastery: verifies both answer and WHY, and uses reasoning quality in scoring
 - Includes output prediction, bug finding, concept checks, and coding tasks
 - Correct answer without reasoning gets partial credit
-- Prioritizes recent misconceptions from study history
+- Prioritizes recent weak points from study history
 - Returns a concrete gap analysis and next-study suggestion
+- Explanations include short plain-language glosses for unfamiliar technical terms
 
 #### `/study-summary` - Save learning notes
 
 This skill saves the session as a Markdown note in `notes/`.
 
-- Preserves learner-written Anchor rules and confusion points
-- Stores Core Loop seed code for later review
+- Classic: concise recap focused on core points
+- Mastery: detailed notes with rules, confusion points, and seed code history
 - Records progress so future sessions can target weak areas
+- Notes use plain wording first and add technical terms only when helpful
 
 ### Installation
 
