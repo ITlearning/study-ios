@@ -6,46 +6,56 @@
 
 ## 한국어
 
-Swift/iOS를 공부할 때 쓸 수 있는 AI CLI 스킬 3개입니다. Claude Code, Codex CLI, Gemini CLI에서 사용할 수 있습니다. 답을 알려주는 대신 질문을 던져서 스스로 생각하게 만들고, 퀴즈로 복습하고, 공부한 내용을 노트로 정리해줍니다.
+Swift/iOS 공부할 때 바로 가져다 쓸 수 있는 CLI 스킬 3개입니다.
+Claude Code, Codex CLI, Gemini CLI에서 같은 흐름으로 사용할 수 있습니다.
+
+핵심은 단순합니다.
+- 바로 답을 주기보다 먼저 생각하게 만들고
+- 퀴즈로 확인하고
+- 마지막에 노트로 남겨서 다음 학습으로 이어갑니다
 
 ### 스킬 목록
 
-#### `/swift-study` - 대화형 Swift 학습
+#### `/swift-study` - Classic + Mastery 학습
 
-주제를 말하면 핵심 개념을 하나씩 짚어가며 가르칩니다. 답을 바로 알려주는 게 아니라 질문을 던져서 스스로 생각하게 만드는 방식입니다.
+학습 스타일을 고를 수 있습니다.
 
-- 주제를 직접 입력하거나 학습 이력 기반 추천을 받을 수 있음
-- 개념 설명 후 서술형 질문으로 이해도 확인
-- 틀리면 힌트를 주고 다시 생각하게 유도
-- 맞으면 바로 심화 내용으로 연결
+- Classic: 설명을 먼저 듣고 질문으로 이해를 확인하는 방식 (처음 배우는 주제에 추천)
+- Mastery: 예측 -> 검증 -> 재진술 루프를 반복하는 훈련 방식 (실전 대비에 추천)
+- 모드 선택 문구에 각 모드의 용도와 난이도를 함께 안내
+- 용어는 한국어 우선으로 설명하고, 필요할 때 영어를 괄호로 병기
+- `격리 경계(isolation boundary)`처럼 낯선 표현은 바로 한 줄 설명을 붙여 이해를 돕는 방식
+- 실행 모드 선택 가능: Swift 컴파일러 실행 또는 설명 모드
 
 #### `/swift-quiz` - 적응형 퀴즈
 
-5문제짜리 퀴즈를 풀 수 있습니다. 맞추면 난이도가 올라가고, 틀리면 내려갑니다.
+Classic/Mastery 모드를 선택해서 퀴즈를 진행합니다.
 
-- 코드 결과 예측, 에러 찾기, 개념 질문, 코드 작성 등 4가지 유형
-- 서술형 중심이라 직접 생각하고 답을 써야 함
-- 코드 작성 문제는 Swift 컴파일러로 실제 검증
-- 끝나면 강점/약점 분석과 다음 학습 추천
+- Classic: 빠른 점검 중심, 근거 설명은 권장
+- Mastery: 정답 + 이유(WHY) 검증, 근거 품질까지 반영
+- 출력 예측, 버그 찾기, 개념 질문, 코드 작성 문제 포함
+- 최근 학습 이력의 오해 포인트를 우선적으로 점검
+- 결과에 보완 포인트 분석과 다음 학습 추천 제공
+- 해설에서도 기술 용어를 처음 쓸 때 짧은 쉬운 설명을 함께 제공
 
-#### `/study-summary` - 학습 노트 생성
+#### `/study-summary` - 학습 노트 저장
 
-대화에서 공부한 내용을 마크다운 노트로 정리해줍니다.
+세션 내용을 `notes/`에 Markdown 파일로 저장합니다.
 
-- 핵심 개념, 코드 예제, 복습 질문을 포함한 구조화된 노트
-- `notes/` 폴더에 날짜별로 자동 저장
-- 학습 진도를 메모리에 기록해서 다음 세션에 이어서 공부 가능
+- Classic: 핵심 개념 위주로 간결하게 정리
+- Mastery: 규칙/혼동 포인트/seed 코드까지 상세 기록
+- 학습 진도와 취약 지점을 다음 세션에서 다시 활용 가능하도록 기록
+- 노트 안에서도 용어를 한국어 우선으로 쓰고, 필요한 영어 용어는 괄호로 병기
 
 ### 설치 방법
 
-
-#### 방법 3: Skills (전체)(권장)
+#### 방법 1: Skills로 설치 (권장)
 
 ```bash
 npx skills add https://github.com/itlearning/study-ios
 ```
 
-이후 원하는 스킬 스페이스바로 선택, 설치할 수 있습니다.
+설치 후 원하는 스킬을 선택해서 추가하면 됩니다.
 
 #### 방법 2: Plugin Marketplace (Claude Code)
 
@@ -63,7 +73,6 @@ npx skills add https://github.com/itlearning/study-ios
 # 저장소 클론
 git clone https://github.com/itlearning/study-ios.git
 
-# 스킬 파일을 프로젝트에 복사
 # Claude Code
 cp -r study-ios/.agents/skills/swift-study YOUR_PROJECT/.claude/skills/
 cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.claude/skills/
@@ -80,37 +89,41 @@ cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.gemini/skills/
 cp -r study-ios/.agents/skills/study-summary YOUR_PROJECT/.gemini/skills/
 ```
 
-설치하면 `/swift-study-skills:swift-study`, `/swift-study-skills:swift-quiz`, `/swift-study-skills:study-summary` 로 사용할 수 있습니다.
+설치 후 다음 명령으로 실행할 수 있습니다.
+
+- `/swift-study-skills:swift-study`
+- `/swift-study-skills:swift-quiz`
+- `/swift-study-skills:study-summary`
 
 ### 사용법
 
-AI CLI에서 슬래시 커맨드로 실행하면 됩니다:
+AI CLI에서 슬래시 커맨드로 실행합니다.
 
-```
+```bash
 /swift-study          # 새로운 주제 학습 시작
 /swift-quiz           # 퀴즈로 복습
 /study-summary        # 오늘 배운 내용 정리
 ```
 
-### 학습 흐름
+### 권장 학습 흐름
 
-```
-/swift-study로 새 주제 학습
+```text
+/swift-study로 학습
         |
         v
-/swift-quiz로 복습 퀴즈
+/swift-quiz로 점검
         |
         v
-/study-summary로 노트 정리 및 진도 기록
+/study-summary로 정리
         |
         v
-다음 세션에서 이력 기반 추천으로 이어서 학습
+다음 세션에서 이전 기록 기반으로 이어서 학습
 ```
 
 ### 지원 CLI
 
 | CLI | 스킬 위치 | 프로젝트 지침 |
-|-----|----------|-------------|
+|-----|-----------|---------------|
 | [Claude Code](https://claude.ai/claude-code) | `.claude/skills/` | `CLAUDE.md` |
 | [Codex CLI](https://github.com/openai/codex) | `.agents/skills/` | `AGENTS.md` |
 | [Gemini CLI](https://github.com/google-gemini/gemini-cli) | `.gemini/skills/` | `.gemini/GEMINI.md` |
@@ -118,7 +131,7 @@ AI CLI에서 슬래시 커맨드로 실행하면 됩니다:
 ### 요구 사항
 
 - 위 CLI 중 하나 이상
-- Swift 컴파일러 (`swift` 명령어) - 퀴즈의 코드 작성 문제 검증에 사용
+- Swift 컴파일러 (`swift` 명령)
 
 ### 라이선스
 
@@ -128,48 +141,59 @@ MIT
 
 ## English
 
-Three AI CLI skills for studying Swift/iOS. Works with Claude Code, Codex CLI, and Gemini CLI. Instead of giving you answers, they ask questions so you work things out yourself. There's also a quiz and a note-taking tool.
+Three CLI skills for studying Swift and iOS.
+They work with Claude Code, Codex CLI, and Gemini CLI.
+
+The workflow is straightforward.
+- Think first instead of getting instant answers
+- Check understanding with a quiz
+- Save what you learned so the next session starts with context
 
 ### Skills
 
-#### `/swift-study` - Interactive Swift learning
+#### `/swift-study` - Classic + Mastery study
 
-Tell it what you want to learn. It walks you through concepts one at a time, asking questions instead of lecturing.
+You can choose the learning style per session.
 
-- Enter a topic directly or get recommendations based on your study history
-- After each explanation, you answer open-ended questions to check understanding
-- Wrong answers get hints, not immediate corrections
-- Right answers lead straight into deeper material
+- Classic: explanation-first flow with question checks (recommended for new topics)
+- Mastery: prediction -> reveal -> restate loop with gate checks (recommended for practice)
+- Mode prompts include plain-language guidance on who each mode is for
+- Learner-facing wording uses plain terms first, with technical terms in parentheses when helpful
+- New technical terms are followed by a short one-line explanation
+- Supports run mode selection: real Swift execution or explanation mode
 
 #### `/swift-quiz` - Adaptive quiz
 
-5 questions. Get one right, difficulty goes up. Get one wrong, it goes down.
+You can run the quiz in Classic or Mastery mode.
 
-- Predict output, find bugs, answer concept questions, or write code
-- Mostly open-ended -- you have to think through your answers
-- Code-writing questions get verified by the actual Swift compiler
-- Results tell you what you're good at and what to review next
+- Classic: fast review, lighter reasoning requirements
+- Mastery: verifies both answer and WHY, and uses reasoning quality in scoring
+- Includes output prediction, bug finding, concept checks, and coding tasks
+- Correct answer without reasoning gets partial credit
+- Prioritizes recent weak points from study history
+- Returns a concrete gap analysis and next-study suggestion
+- Explanations include short plain-language glosses for unfamiliar technical terms
 
-#### `/study-summary` - Learning notes
+#### `/study-summary` - Save learning notes
 
-Turns your study conversation into a markdown note.
+This skill saves the session as a Markdown note in `notes/`.
 
-- Key concepts, code examples, and review questions in one file
-- Auto-saved to `notes/` folder by date
-- Tracks your progress in memory so you can pick up where you left off
+- Classic: concise recap focused on core points
+- Mastery: detailed notes with rules, confusion points, and seed code history
+- Records progress so future sessions can target weak areas
+- Notes use plain wording first and add technical terms only when helpful
 
 ### Installation
 
-
-#### Option 1: Skills (ALL)(Recommend)
+#### Option 1: Install with Skills (recommended)
 
 ```bash
 npx skills add https://github.com/itlearning/study-ios
 ```
 
-After that, you can select and install the desired skill using the spacebar.
+Then choose and install the skills you want.
 
-#### Option 2: Plugin marketplace (Claude Code)
+#### Option 2: Plugin Marketplace (Claude Code)
 
 ```bash
 # Add the marketplace in Claude Code
@@ -182,10 +206,9 @@ After that, you can select and install the desired skill using the spacebar.
 #### Option 3: Manual copy
 
 ```bash
-# Clone the repo
+# Clone the repository
 git clone https://github.com/itlearning/study-ios.git
 
-# Copy skill files to your project
 # Claude Code
 cp -r study-ios/.agents/skills/swift-study YOUR_PROJECT/.claude/skills/
 cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.claude/skills/
@@ -202,22 +225,26 @@ cp -r study-ios/.agents/skills/swift-quiz YOUR_PROJECT/.gemini/skills/
 cp -r study-ios/.agents/skills/study-summary YOUR_PROJECT/.gemini/skills/
 ```
 
-After that, skills are available as `/swift-study-skills:swift-study`, `/swift-study-skills:swift-quiz`, `/swift-study-skills:study-summary`.
+After installation, you can run:
+
+- `/swift-study-skills:swift-study`
+- `/swift-study-skills:swift-quiz`
+- `/swift-study-skills:study-summary`
 
 ### Usage
 
-Run slash commands in your AI CLI:
+Run slash commands in your AI CLI.
 
-```
-/swift-study          # Start learning a new topic
+```bash
+/swift-study          # Start a new topic
 /swift-quiz           # Review with a quiz
-/study-summary        # Save today's learning notes
+/study-summary        # Save learning notes
 ```
 
-### Study flow
+### Suggested flow
 
-```
-Learn a new topic with /swift-study
+```text
+Learn with /swift-study
         |
         v
 Review with /swift-quiz
@@ -226,21 +253,21 @@ Review with /swift-quiz
 Save notes with /study-summary
         |
         v
-Next session picks up with history-based recommendations
+Continue next time with history-based context
 ```
 
 ### Supported CLIs
 
 | CLI | Skills location | Project instructions |
-|-----|----------------|---------------------|
+|-----|-----------------|----------------------|
 | [Claude Code](https://claude.ai/claude-code) | `.claude/skills/` | `CLAUDE.md` |
 | [Codex CLI](https://github.com/openai/codex) | `.agents/skills/` | `AGENTS.md` |
 | [Gemini CLI](https://github.com/google-gemini/gemini-cli) | `.gemini/skills/` | `.gemini/GEMINI.md` |
 
 ### Requirements
 
-- One or more of the CLIs above
-- Swift compiler (`swift` command) -- the quiz uses it to check your code
+- One or more CLIs above
+- Swift compiler (`swift` command)
 
 ## 기여하기 (Contributing)
 
